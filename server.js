@@ -14,15 +14,14 @@ app.set("views","views");
 app.set("view engine","ejs");
 
 
-//4
-app.get("/hello", function(req,res) {
-res.end("<h1>salom hayot yangiliklar </h1>");
+//4 Routing code
+//app.get ("/", function(req, res){
+//  resizeBy.render("Haridlar");
+//})
+app.get("/", function(req, res){
+    res.render("Haridlar");
+});
 
-})
-app.get("/gift", function(req,res) {
-res.end("<h1>sovg'alar saxifasidasiz </h1>");
-
-})
 
 const server = http.createServer(app);
 let PORT = 3000;
