@@ -79,5 +79,5 @@ function countLetter(letter, text) {
 // Misol:
 console.log(countLetter("e", "engineer"))
 
-
+console.log("Train script ishga tushdi!");
 
