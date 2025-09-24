@@ -11,6 +11,7 @@ fs.readFile("database/user.json","utf8",(err, data) =>{
         user = JSON.parse(data);
     }
 });
+//MongoDB connect
 //1
 app.use(express.static("public"));
 app.use(express.json());
@@ -30,7 +31,7 @@ app.get('/author', (req, res) => {
 })
 
 app.get("/", function(req, res){
-    res.render("Reja");
+   res.render("Reja");
 });
 
 
