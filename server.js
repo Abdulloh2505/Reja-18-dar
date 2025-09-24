@@ -30,7 +30,7 @@ app.get('/author', (req, res) => {
 })
 
 app.get("/", function(req, res){
-    res.render("Haridlar");
+    res.render("Reja");
 });
 
 
@@ -38,7 +38,7 @@ const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function ()
 {
-    console.log(`THe server is running successfully on port: ${PORT}`);
+    console.log(`THe server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
 
 // versiya 20 buldi 
