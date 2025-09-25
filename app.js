@@ -1,4 +1,5 @@
 // app.js
+console.log("Webserverni boshlash");
 const express = require("express");
 
 module.exports = (client) => {
@@ -14,27 +15,35 @@ module.exports = (client) => {
   app.set("views", "views");
   app.set("view engine", "ejs");
 
-  // 4 Routing code
+  // 4: Routing code
+  // Yangi item yaratish
   app.post("/create-item", (req, res) => {
-  // STEP 2
-  const new_plan = req.body.plan;
-  // STEP 3
-  db.collection("plan").insertOne({ plan: new_plan }, (err, data) => {
-    res.json(data.ops[0]);
-  });
-});
+     console.log("user entered /create-item");
+    const new_reja = req.body.reja; // formdan kelgan ma’lumot
+    console.log("Kelgan reja:", new_reja);
 
+    db.collection("plan").insertOne({ reja: new_reja }, (err, data) => {
+      if (err) {
+        console.log(err);
+        return res.end("Something went wrong");
+      }
+      res.end("Successfully added");
+      // yoki: res.json(data.ops[0]);
+    });
+  });
+
+  // Bosh sahifa
   app.get("/", (req, res) => {
-    console.log("GET / api");
+    console.log("user entered /");
     db.collection("plan")
       .find()
       .toArray((err, data) => {
         if (err) {
-          console.log(err.message);
-          res.end("(app.get/) something went wrong");
-        } else {
-          res.render("reja", { items: data }); // reja.ejs
+          console.log(err);
+          return res.end("Something went wrong");
         }
+        console.log("Plans:", data);
+        res.render("reja", { plans: data }); // ejs'ga malumot berib yuborish
       });
   });
 
