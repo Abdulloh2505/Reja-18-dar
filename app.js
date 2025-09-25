@@ -1,10 +1,8 @@
-console.log("Web server boshlash");
+// import main module & packages:
 const express = require("express");
 const app = express();
-const fs = require("fs");
-const path = require("path");
 
-// MongoDB choqirish
+// Call MongoDB
 const db = require("./server").db();
 
 // 1: Kirish code
@@ -19,20 +17,20 @@ app.set("view engine", "ejs");
 
 // 4 Routing code
 app.post("/create-item", (req, res) => {
-    console.log(req.body);
-    res.end("success")
+  console.log(req.body);
+  res.end("success");
 });
 
 app.get("/", function (req, res) {
-    db.collection("plans").find().toArray((err, data) => {
-    if(err) {
+  db.collection("plan")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
         console.log(err);
-        res.end("something went wrong")
-         }     else {
-         console.log(data);
-         res.render("reja");
-        }}
-    
-
-)}
-)
+        res.end("something went wrong");
+      } else {
+        console.log(data);
+        res.render("reja");
+      }
+    });
+});
