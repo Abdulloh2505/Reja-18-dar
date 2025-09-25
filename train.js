@@ -66,7 +66,7 @@ maslahatBering(70, (err,data) =>{
 //run();*/
 
 
-function countLetter(letter, text) {
+/*function countLetter(letter, text) {
   let count = 0
   for (let i = 0; i < text.length; i++) {
     if (text[i] === letter) {
@@ -80,4 +80,17 @@ function countLetter(letter, text) {
 console.log(countLetter("e", "engineer"))
 
 console.log("Train script ishga tushdi!");
+*/
+//b task
+function countDigits(str) {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            count++;
+        }
+    }
+    return count;
+}
 
+// Test
+console.log(countDigits("ad2a54y79wet0sfgb9")); // Natija: 7
