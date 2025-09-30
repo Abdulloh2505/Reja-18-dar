@@ -36,3 +36,29 @@ document
 
 
 }); 
+
+document.addEventListener("click", function(e){
+    //delete operatsiyasi
+    console.log(e.target);
+if(e.target.classList.contains("delete-me")){
+    if(confirm("Aniq o'chirmoqchimisiz?")){
+        axios
+        .post("/delete-item",{id: e.target.getAttribute("data-id")})
+        .then((respose) => {
+            console.log(respose.data);
+            e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+            console.log("Iltimos qayta Urinib kuring hatoliklar uchun uzur!");      } );
+    }
+}
+
+
+
+
+//edit operatsiyasi
+if(e.target.classList.contains("edit-me")){
+    alert("siz edit tugmasiini bosdingiz");
+}
+
+});
