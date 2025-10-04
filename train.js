@@ -155,15 +155,15 @@
 
 
 //D-Task
-function checkContent(a, b) {
-  let x = a.split("").sort().join("");
-  let y = b.split("").sort().join("");
-  if (x === y) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function checkContent(a, b) {
+//   let x = a.split("").sort().join("");
+//   let y = b.split("").sort().join("");
+//   if (x === y) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 
 
@@ -172,3 +172,20 @@ function checkContent(a, b) {
 // /console.log(checkContent("mitgroup", "gmtiprou")); // true
 // console.log(checkContent("hello", "olelh"));       // true
 // console.log(checkContent("hello", "world"));       // false
+
+
+
+//E TASK
+function getReverse(str) {
+  let result = "";
+  let i = str.length - 1;
+  while (i >= 0) {
+    result = result + str[i];
+    i = i - 1;
+  }
+  return result;
+}
+
+
+//NATIJASINI MANA
+console.log(getReverse("hello")); // Natija: "olleh"
